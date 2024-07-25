@@ -2,10 +2,10 @@
 Project built using django-redis
 
 ### Requirements:
-Python 3.10.12
-Django 5.0.7
-django-redis 5.4.0
-django-redis-cache 3.0.1
+* Python 3.10.12
+* Django 5.0.7
+* django-redis 5.4.0 
+* django-redis-cache 3.0.1
 
 ### Steps to run this project:
 1. Create virtual environment using python -m venv 'redisvenv' command. 
