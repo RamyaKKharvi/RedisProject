@@ -1,0 +1,96 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foodie Land</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+<style>
+    h1{
+    color:darkblue
+    }
+    body{
+    color:maroon
+    }
+    h5{
+    color:purple
+    }
+</style>
+
+</head>
+
+{% block content %}
+<h1>Welcome to Foodie Land</h1>
+<body class="container mt-3">
+    <div class="my-3">
+        <p>Are you bored with Eating the same recipe? Or Are you famished? and want to try something delicious?<br>
+        Then you have come to the right spot !!!</p>
+        <p>Hello, fellow foodie lovers!<br>
+            Welcome to <b>"Foodie Land".</b> I’m your favorite <b>RK</b>, a passionate home cook, food enthusiast, and your guide on this culinary adventure. <br>
+            I’m thrilled to have you join me on this delicious journey where we celebrate the art of cooking, the joy of eating,
+            and the beauty of sharing meals with loved ones.
+            This blog is a labor of love, born from my passion for cooking, experimenting with flavors, and sharing good
+            food and memories with my foodie friends and family.
+            Here, you’ll find a variety of recipes that range from simple weeknight dinners to impressive dishes for special occasions.
+            I believe that food is more than just sustenance—it’s a way to bring people together, to create memories, and to express creativity.
+            Each recipe comes with step-by-step instructions, tips, and personal anecdotes to guide you through your culinary adventures.
+            Whether you’re a novice in the kitchen or a seasoned cook looking for new ideas, there’s something here for everyone.</p>
+            <p>Join me as we dive into the world of flavors, ingredients, and cooking techniques.
+            Let’s make every meal an opportunity to enjoy, learn, and share the joy of food!</p>
+            <p>Happy cooking !!! 😃👩🏻‍🍳👨🏻‍🍳</p>
+
+        <div class="container mt-5">
+            <form method="get" class="text-center d-flex">
+                <input class="form-control" name="recipe" placeholder="Search Recipe" style="width:75%">
+                <button class="mx-3 btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        {% if recipe %}
+        <div class="container mt-5">
+            <table class="text-center">
+                <thead>
+                <tr class="text-center">
+                    <th style="width:20%">Food</th>
+                    <th style="width:50%">Description</th>
+                    <th style="width:40%">Image</th>
+                    <th style="width:30%">Details</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for r in recipe %}
+                <tr>
+                    <td>{{r.name}}</td>
+                    <td>{{r.intro|truncatechars:200}}</td>
+                    <td><img src="{{r.image}}" alt="{{r.name}}" class="p-2" style="height:100px"></td>
+                    <td><a href="{{r.id}}" class="btn btn-success">View</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="text-center">Sorry! No Recipe Found... Try something else !!!</p>
+            {% endif %}
+        </div>
+
+        <div class="mt-5">
+            <p>Bon Appétit !!!</p>
+            <p>Signing off <br>Ramya Kharvi</p>
+        </div>
+    </div>
+{% endblock content %}
+    <footer class="mt-5 bg-secondary">
+        <p class="text-center" style="color:yellow">Django Redis Project</p>
+    </footer>
+
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+
+</html>
