@@ -22,7 +22,7 @@ def get_recipe(filter_recipe=None):
 def home(request):
     filter_recipe = request.GET.get("recipe")
     print("DATA COMING FROM CACHE")
-    if cache.get(filter_recipe) and 0:
+    if cache.get(filter_recipe):
         recipe = cache.get(filter_recipe)
     else:
         if filter_recipe:
